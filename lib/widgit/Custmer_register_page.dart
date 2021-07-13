@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:form/Router/Router.dart';
 import 'package:form/homePage.dart';
 import 'package:form/widgit/Custom_textFeild.dart';
 
@@ -15,17 +16,11 @@ class _CustmerPageState extends State<CustmerPage> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-      CustomTextFeild("name", name),
-      CustomTextFeild("Password", pass,true),
+        CustomTextFeild("name", name),
+        CustomTextFeild("Password", pass, true),
         RaisedButton(
           onPressed: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (BuildContext context) {
-              return Home(
-                name: name.text,
-                pass: pass.text,
-              );
-            }));
+            AppRouter.appRouter.puchFunction(Home1());
           },
           child: Text("submit"),
         ),
